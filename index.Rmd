@@ -1,6 +1,6 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAMES HERE"
+title: "Tiger Sightings in New York City"
+author: "Joyce Robbins"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
