@@ -98,6 +98,54 @@
             <section class="normal" id="section-">
 <div id="interactive-component" class="section level1" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Interactive component</h1>
+<div id="scatter">
+
+</div>
+<script src="https://d3js.org/d3.v6.js"></script>
+<script>
+
+var w = 500;
+var h = 400;
+
+d3.select("div#scatter")
+  .append("svg")
+  .attr("id", "s1")
+  .attr("width", w)
+  .attr("height", h)
+  
+  
+
+var rowConverter = function (d) {
+  return {
+    disp: +d.disp,
+    mpg: +d.mpg,
+    carname: d.carname,
+    cylcolor: d.cylcolor
+    }
+};  
+
+d3.csv("https://raw.githubusercontent.com/jtr13/myproject/main/data/mtcars.csv", rowConverter)
+  .then(function(data) {
+
+  d3.select("svg#s1")
+    .selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("cx", d => d.disp)
+    .attr("cy", d => 400 - d.mpg)
+    .attr("r", "5")
+    .attr("fill", "blue")
+  
+  })
+  .catch(function(error) {
+  
+// error handling  
+  
+  console.log("There's a problem.")
+});
+
+</script>
 
 </div>
             </section>
